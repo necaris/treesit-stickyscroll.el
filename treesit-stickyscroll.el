@@ -1,10 +1,9 @@
 ;;; treesit-stickyscroll.el --- Show context information around current point -*- lexical-binding: t; -*-
 
-;; Author: zbelial
-;; Maintainer: zbelial
+;; Author: necaris, jaaasonSun, zbelial
 ;; Version: 0.1.0
 ;; Package-Requires: ((emacs "29.1") (posframe "1.4.2"))
-;; Homepage: https://bitbucket.org/zbelial/treesit-stickyscroll
+;; Homepage: https://github.com/jaaasonSun/treesit-stickyscroll.el
 ;; Keywords: Package Emacs
 
 
