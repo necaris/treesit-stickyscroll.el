@@ -23,7 +23,7 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-;;; Require 
+;;; Require
 (require 'cl-lib)
 (require 'treesit)
 (require 'posframe)
@@ -186,5 +186,13 @@ See `posframe-show' for more infor about hidehandler and INFO ."
 
 (require 'treesit-stickyscroll-c)
 (require 'treesit-stickyscroll-cpp)
+(require 'treesit-stickyscroll-python)
+(require 'treesit-stickyscroll-typescript)
+(require 'treesit-stickyscroll-tsx)
+(require 'treesit-stickyscroll-javascript)
+(require 'treesit-stickyscroll-rust)
+(require 'treesit-stickyscroll-go)
+(require 'treesit-stickyscroll-java)
+(require 'treesit-stickyscroll-yaml)
 
 (provide 'treesit-stickyscroll)

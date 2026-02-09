@@ -8,8 +8,13 @@ Language support
 
   - C
   - C++
-
-> Note: the original treesitter-context supports a lot more languages. But I have only updated C & C++ tree sitter query to work with treesit-stickyscroll. If you would like to use treesit-stickyscroll in other languages, look for language definitions in treesitter-context, which should work with minimal change. 
+  - Python
+  - TypeScript / TSX
+  - JavaScript
+  - Rust
+  - Go
+  - Java
+  - YAML
 
 # License
   GPLv3
