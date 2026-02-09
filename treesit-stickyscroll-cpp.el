@@ -3,7 +3,7 @@
 (require 'treesit-stickyscroll-common)
 
 (defconst treesit-stickyscroll--c++-node-types '("preproc_if" "preproc_ifdef" "preproc_else" "function_definition" "for_statement" "if_statement" "else_clause" "while_statement" "do_statement" "struct_specifier" "enum_specifier" "for_range_loop" "class_specifier" "namespace_definition" "linkage_specification" "switch_statement" "case_statement")
-  "Node types that may be showed.")
+  "Node types that may be shown.")
 
 (defconst treesit-stickyscroll--c++-query
   (treesit-query-compile 'cpp '(
@@ -35,7 +35,5 @@
   "Collect all of current node's parent nodes."
   (treesit-stickyscroll-collect-contexts-base treesit-stickyscroll--c++-node-types treesit-stickyscroll--c++-query))
 
-;;; supported mode
-(add-to-list 'treesit-stickyscroll--supported-mode 'c++-ts-mode t)
-
 (provide 'treesit-stickyscroll-cpp)
+;;; treesit-stickyscroll-cpp.el ends here

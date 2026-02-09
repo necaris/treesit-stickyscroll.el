@@ -3,7 +3,7 @@
 (require 'treesit-stickyscroll-common)
 
 (defconst treesit-stickyscroll--c-node-types '("preproc_if" "preproc_ifdef" "preproc_else" "function_definition" "for_statement" "if_statement" "else_clause" "while_statement" "do_statement" "struct_specifier" "enum_specifier" "switch_statement" "case_statement")
-  "Node types that may be showed.")
+  "Node types that may be shown.")
 
 (defun treesit-stickyscroll--c-check-preproc-else-range (node)
   (let ((start-pos (treesit-node-start node))
@@ -36,7 +36,5 @@
   "Collect all of current node's parent nodes."
   (treesit-stickyscroll-collect-contexts-base treesit-stickyscroll--c-node-types treesit-stickyscroll--c-query))
 
-;;; supported mode
-(add-to-list 'treesit-stickyscroll--supported-mode 'c-ts-mode t)
-
 (provide 'treesit-stickyscroll-c)
+;;; treesit-stickyscroll-c.el ends here
