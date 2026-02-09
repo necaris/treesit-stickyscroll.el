@@ -27,6 +27,7 @@
 (require 'cl-lib)
 (require 'treesit)
 (require 'posframe)
+(require 'treesit-stickyscroll-common)
 
 (defgroup treesit-stickyscroll nil
   "Show context information around current point."
@@ -175,6 +176,7 @@ See `posframe-show' for more infor about hidehandler and INFO ."
                  (posframe-workable-p)
                  (member major-mode treesit-stickyscroll--supported-mode))
             (progn
+              (treesit-stickyscroll--ensure-language)
               (add-hook 'post-command-hook #'treesit-stickyscroll--refresh-when-idle nil t)
               (treesit-stickyscroll--refresh-context))
           (setq treesit-stickyscroll-mode nil)))
@@ -183,16 +185,5 @@ See `posframe-show' for more infor about hidehandler and INFO ."
       (setq treesit-stickyscroll--refresh-timer nil))
     (treesit-stickyscroll--hide-frame)
     (remove-hook 'post-command-hook #'treesit-stickyscroll--refresh-when-idle t)))
-
-(require 'treesit-stickyscroll-c)
-(require 'treesit-stickyscroll-cpp)
-(require 'treesit-stickyscroll-python)
-(require 'treesit-stickyscroll-typescript)
-(require 'treesit-stickyscroll-tsx)
-(require 'treesit-stickyscroll-javascript)
-(require 'treesit-stickyscroll-rust)
-(require 'treesit-stickyscroll-go)
-(require 'treesit-stickyscroll-java)
-(require 'treesit-stickyscroll-yaml)
 
 (provide 'treesit-stickyscroll)

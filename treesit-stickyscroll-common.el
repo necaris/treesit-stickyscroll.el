@@ -240,4 +240,30 @@ Each node is indented according to INDENT-OFFSET."
   "Get current code node's region."
   (user-error "%s is not supported by treesit-stickyscroll-fold." major-mode))
 
+;;; Language support — lazy-loaded on demand
+(defconst treesit-stickyscroll--language-alist
+  '((c-ts-mode          . treesit-stickyscroll-c)
+    (c++-ts-mode        . treesit-stickyscroll-cpp)
+    (python-ts-mode     . treesit-stickyscroll-python)
+    (typescript-ts-mode . treesit-stickyscroll-typescript)
+    (js-ts-mode         . treesit-stickyscroll-javascript)
+    (rust-ts-mode       . treesit-stickyscroll-rust)
+    (go-ts-mode         . treesit-stickyscroll-go)
+    (java-ts-mode       . treesit-stickyscroll-java)
+    (yaml-ts-mode       . treesit-stickyscroll-yaml)
+    (tsx-ts-mode        . treesit-stickyscroll-tsx))
+  "Alist mapping major modes to their language support feature.
+Each feature is loaded lazily when `treesit-stickyscroll-mode' activates
+in a buffer with the corresponding major mode.")
+
+;; Pre-populate the supported-mode list so the minor mode guard
+;; recognises all languages without loading their files eagerly.
+(dolist (entry treesit-stickyscroll--language-alist)
+  (add-to-list 'treesit-stickyscroll--supported-mode (car entry) t))
+
+(defun treesit-stickyscroll--ensure-language ()
+  "Load the language support feature for the current `major-mode' if needed."
+  (when-let ((feature (alist-get major-mode treesit-stickyscroll--language-alist)))
+    (require feature)))
+
 (provide 'treesit-stickyscroll-common)
